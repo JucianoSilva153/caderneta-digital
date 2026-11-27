@@ -1,0 +1,30 @@
+# Dependências
+node_modules/
+
+# Build
+dist/
+build/
+
+# Ambiente (nunca versionar segredos)
+.env
+.env.local
+.env.*.local
+
+# Base de dados local
+*.db
+*.db-journal
+backend/prisma/dev.db
+backend/prisma/migrations/dev.db*
+
+# Sistema e editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Enunciado do laboratório (não faz parte do produto)
+docs/Lab02_*.pdf

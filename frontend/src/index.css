@@ -1,0 +1,226 @@
+:root {
+  --azul-900: #0b2a4a;
+  --azul-700: #14532d;
+  --azul-600: #1d4ed8;
+  --texto: #111827;
+  --texto-suave: #374151;
+  --fundo: #f3f4f6;
+  --branco: #ffffff;
+  --erro: #991b1b;
+  --borda: #d1d5db;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color: var(--texto);
+  background: var(--fundo);
+  line-height: 1.5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* Foco sempre visível — requisito de acessibilidade por teclado */
+:focus-visible {
+  outline: 3px solid var(--azul-600);
+  outline-offset: 2px;
+}
+
+.pagina-login {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  background: linear-gradient(160deg, var(--azul-900), #123c63);
+}
+
+.cartao {
+  width: 100%;
+  max-width: 26rem;
+  background: var(--branco);
+  border-radius: 0.75rem;
+  padding: 2rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+.marca {
+  margin: 0 0 0.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--azul-600);
+  font-weight: 700;
+}
+
+h1 {
+  margin: 0 0 0.5rem;
+  font-size: 1.5rem;
+  line-height: 1.25;
+}
+
+.subtitulo {
+  margin: 0 0 1.5rem;
+  color: var(--texto-suave);
+  font-size: 0.95rem;
+}
+
+.campo {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+input {
+  width: 100%;
+  padding: 0.7rem 0.75rem;
+  font-size: 1rem;
+  border: 1px solid var(--borda);
+  border-radius: 0.5rem;
+  background: var(--branco);
+  color: var(--texto);
+}
+
+input[aria-invalid='true'] {
+  border-color: var(--erro);
+  border-width: 2px;
+}
+
+.erro {
+  margin: 0.4rem 0 0;
+  color: var(--erro);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+button {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--branco);
+  background: var(--azul-600);
+  border: 0;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1e40af;
+}
+
+.nota {
+  margin: 1.5rem 0 0;
+  font-size: 0.8rem;
+  color: var(--texto-suave);
+  border-top: 1px solid var(--borda);
+  padding-top: 1rem;
+}
+
+/* Painel */
+.aplicacao {
+  min-height: 100vh;
+  background: var(--fundo);
+}
+
+.barra {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background: var(--branco);
+  border-bottom: 1px solid var(--borda);
+}
+
+.barra .marca {
+  margin: 0;
+}
+
+button.secundario {
+  width: auto;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  color: var(--azul-600);
+  border: 2px solid var(--azul-600);
+}
+
+button.secundario:hover {
+  background: #eff6ff;
+}
+
+.conteudo {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.lista-modulos {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.lista-modulos li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background: var(--branco);
+  border: 1px solid var(--borda);
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.lista-modulos span {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+}
+
+.etiqueta {
+  font-size: 0.75rem !important;
+  font-weight: 700;
+  color: var(--azul-700) !important;
+  background: #dcfce7;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+/* Responsivo: telemóvel */
+@media (max-width: 480px) {
+  .cartao {
+    padding: 1.5rem;
+  }
+
+  h1 {
+    font-size: 1.25rem;
+  }
+
+  .barra {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .lista-modulos li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}

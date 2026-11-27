@@ -1,0 +1,29 @@
+// Modelo de dados — Caderneta Digital do Coordenador de Turno
+// Sprint 1: apenas o utilizador e o perfil. Os restantes modelos entram nas sprints 2-4.
+// SQLite para desenvolvimento local; para publicar, trocar provider para "postgresql".
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+enum Perfil {
+  ADMIN
+  COORDENADOR
+  FUNCIONARIO
+}
+
+model Utilizador {
+  id           String   @id @default(cuid())
+  nome         String
+  email        String   @unique
+  palavraPasse String // hash bcrypt — nunca em texto simples
+  perfil       Perfil   @default(FUNCIONARIO)
+  ativo        Boolean  @default(true)
+  criadoEm     DateTime @default(now())
+  atualizadoEm DateTime @updatedAt
+}
